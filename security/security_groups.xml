@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+
+<odoo>
+  <data>
+
+    <record id = "module_elearning_category" model = "ir.module.category">
+      <field name = "name">e-Learning Category</field>
+      <field name = "description">Category for e-Learning Module</field>
+    </record>
+  
+    <record id = "group_elearning_student" model = "res.groups">
+      <field name = "name">Student</field>
+      <field name = "category_id" ref = "module_elearning_category" />
+    </record>
+
+    <record id = "group_elearning_teacher" model = "res.groups">
+      <field name = "name">Teacher</field>
+      <field name = "category_id" ref = "module_elearning_category" />
+    </record>
+
+    <record id = "group_elearning_manager" model = "res.groups">
+      <field name = "name">General Manager</field>
+      <field name = "category_id" ref = "module_elearning_category" />
+    </record>
+
+    <record id = "group_elearning_resources" model = "res.groups">
+      <field name = "name">Finatial Resources</field>
+      <field name = "category_id" ref = "module_elearning_category" />
+    </record>
+  </data>
+</odoo>

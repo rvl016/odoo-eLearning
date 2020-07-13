@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+
+<odoo>
+  <menuitem id = "elearning_root_menu"
+    name = "eLearning"
+    sequence = "0"
+  />
+
+    <menuitem id = "users_menu"
+      name = "Users"
+      parent = "elearning_root_menu"
+      action = "elearning_user_view_action"
+    />
+</odoo>

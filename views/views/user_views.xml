@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+
+<odoo>
+
+  <record id = "elearning_user_tree_view" model = "ir.ui.view">
+    <field name = "model">res.users</field>
+    <field name = "inherit_id" ref = "base.view_users_tree" />
+    <field name = "arch" type = "xml">
+      <xpath expr = "//field[@name='name']" position = "after">
+        <field name = "role" />
+      </xpath>
+    </field>
+  </record>
+
+  <record id = "elearning_user_form_view" model = "ir.ui.view">
+    <field name = "model">res.users</field>
+    <field name = "inherit_id" ref = "base.view_users_form" />
+    <field name = "arch" type = "xml">
+      <xpath position = "attributes" expr = 
+        "//group[field[@name='partner_id']]">
+        <attribute name = "invisible">1</attribute>
+      </xpath>
+      <xpath position = "after" expr = 
+        "//group[field[@name='partner_id']]">
+        <group>
+          <group>
+            <field name = "role" />
+          </group>
+          <group>
+            <xpath position = "move" expr = 
+              "//field[@name='partner_id']" />
+          </group>
+        </group>
+      </xpath>
+    </field>
+  </record>  
+</odoo>
