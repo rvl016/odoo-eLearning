@@ -16,15 +16,17 @@ class User( models.Model) :
   @api.model_create_multi
   def create( self, values_list) :
     for values in values_list :
-      values = self._append_group( values)
-    super( User, self).create( values_list)
+      if values.get( 'role') :
+        values = self._append_group( values)
+    return super( User, self).create( values_list)
 
 
   def write( self, values) :
-    values = self._append_group( values)
-    super( User, self).write( values)
+    if values.get( 'role') :
+      values = self._append_group( values)
+    return super( User, self).write( values)
 
   def _append_group( self, values) :
     group_ref = self.GROUPS_REF[values['role']]
-    #values['groups_id'] = [(5, 0, 0), (4, self.env.ref( group_ref))]
+    values['groups_id'] = [(5, 0, 0), (4, self.env.ref( group_ref).id)]
     return values

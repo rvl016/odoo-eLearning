@@ -5,6 +5,7 @@
   <record id = "elearning_user_tree_view" model = "ir.ui.view">
     <field name = "model">res.users</field>
     <field name = "inherit_id" ref = "base.view_users_tree" />
+    <field name = "mode">primary</field>
     <field name = "arch" type = "xml">
       <xpath expr = "//field[@name='name']" position = "after">
         <field name = "role" />
@@ -15,16 +16,13 @@
   <record id = "elearning_user_form_view" model = "ir.ui.view">
     <field name = "model">res.users</field>
     <field name = "inherit_id" ref = "base.view_users_form" />
+    <field name = "mode">primary</field>
     <field name = "arch" type = "xml">
-      <xpath position = "attributes" expr = 
-        "//group[field[@name='partner_id']]">
-        <attribute name = "invisible">1</attribute>
-      </xpath>
-      <xpath position = "after" expr = 
+      <xpath position = "replace" expr = 
         "//group[field[@name='partner_id']]">
         <group>
           <group>
-            <field name = "role" />
+            <field name = "role" required = "True" />
           </group>
           <group>
             <xpath position = "move" expr = 
